@@ -1,0 +1,107 @@
+:root {
+  --mainWelcome: 1500ms;
+  --mainLogin: 500ms;
+  --mainRegister: 500ms;
+}
+.main {
+  width: 720px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.main__welcome {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0rem;
+  padding: 0.5em;
+  flex: 0.3;
+  animation: var(--mainWelcome) ease-out forwards mainWelcome;
+}
+.main__proceed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 0.7;
+  margin-bottom: 2em;
+}
+.main__proceed-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main__proceed-option-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  margin: 0.75em;
+}
+.main__proceed-login {
+  animation: var(--mainLogin) ease-out var(--mainWelcome) forwards mainLogin;
+  opacity: 0;
+  visibility: hidden;
+}
+.main__proceed-register {
+    animation: var(--mainRegister) ease-out calc(var(--mainWelcome) + var(--mainLogin)) forwards mainRegister;
+    opacity: 0;
+    visibility: hidden;
+}
+.main__proceed-option-button a {
+  font-size: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em;
+  background-color: orange;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+  border: none;
+  border-radius: 0.15em;
+  color: black;
+}
+@keyframes mainWelcome {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    font-size: 0rem;
+  }
+  40% {
+    opacity: 1;
+    visibility: visible;
+    font-size: 3.5rem;
+  }
+  80% {
+    opacity: 1;
+    visibility: visible;
+    font-size: 3rem;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    font-size: 3.5rem;
+  }
+}
+@keyframes mainLogin {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes mainRegister {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
